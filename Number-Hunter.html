@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Hunter v2 - 暇つぶしゲームセンター</title>
+    <style>
+        /* 全体のデザイン調整 */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
+        .container { max-width: 600px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        /* ヘッダー・タイトル */
+        h1 { font-size: 1.8rem; color: #28a745; text-align: center; margin-bottom: 10px; }
+        .game-status { text-align: center; font-size: 0.9rem; color: #666; margin-bottom: 20px; }
+
+        /* 画像エリア */
+        .img-container { width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 20px; border: 1px solid #eee; }
+        .img-container img { width: 100%; height: auto; display: block; }
+
+        /* 説明文エリア */
+        .description-box { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        h2 { font-size: 1.2rem; border-left: 5px solid #28a745; padding-left: 10px; margin-bottom: 10px; color: #333; }
+        p { font-size: 0.95rem; margin-bottom: 15px; }
+        ul { padding-left: 20px; font-size: 0.95rem; }
+        ul li { margin-bottom: 8px; }
+
+        /* ボタン */
+        .play-btn { display: block; width: 100%; padding: 18px; background: #28a745; color: #fff; text-align: center; text-decoration: none; border-radius: 30px; font-size: 1.2rem; font-weight: bold; margin-top: 30px; box-shadow: 0 4px 0 #1e7e34; transition: 0.2s; }
+        .play-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #1e7e34; }
+
+        /* フッター（ちょこんとリンク） */
+        footer { text-align: center; padding: 40px 0 20px; font-size: 0.8rem; color: #aaa; }
+        footer a { color: #888; text-decoration: none; margin: 0 10px; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Number Hunter v2</h1>
+    <p class="game-status">自作ゲーム集 ｜ 反射神経系パズル</p>
+
+    <div class="img-container">
+        <img src="images/IMG_5649.jpeg" alt="Number Hunter v2 ゲーム画面">
+    </div>
+
+    <div class="description-box">
+        <h2>遊び方</h2>
+        <p>次々現れる数字を順番にハント！ミス即終了の極限スピード勝負です。</p>
+        <ul>
+            <li>「START」ボタンを押すとゲームが始まります。</li>
+            <li>画面内のバブルを「1」から順番にタップしてください。</li>
+            <li>正解をタップすると次の数字が出現します。</li>
+            <li>順番を間違えると即ゲームオーバー！</li>
+        </ul>
+    </div>
+
+    <div class="description-box">
+        <h2>攻略のコツ</h2>
+        <ul>
+            <li><strong>視野を広く持つ：</strong> 今タップしている数字の隣に、次の数字が隠れているかも！</li>
+            <li><strong>リズムが大事：</strong> 一定のテンポで叩き続けるとミスが減ります。</li>
+            <li><strong>焦りは禁物：</strong> 後半ほどバブルが重なるので、正確に狙いましょう。</li>
+        </ul>
+    </div>
+
+    <a href="number-hunter-game.html" class="play-btn">今すぐ遊ぶ！</a>
+</div>
+
+<footer>
+    <a href="index.html">ホーム</a> | 
+    <a href="privacy.html">プライバシーポリシー</a>
+    <p style="margin-top: 10px;">&copy; 2026 暇つぶしゲームセンター</p>
+</footer>
+
+</body>
+</html>
