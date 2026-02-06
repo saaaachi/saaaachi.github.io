@@ -3,91 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Hunter v2 - 暇つぶしゲームセンター</title>
+    <title>【遊び方】Number Hunter v2 - 暇つぶしゲームセンター</title>
     <style>
-        /* 全体のデザイン調整 */
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
-        .container { max-width: 600px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        /* Sort-Masterのデザインに完全に合わせる */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; background-color: #f0f2f5; margin: 0; padding: 15px; color: #444; }
+        .info-container { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .back-link { text-decoration: none; color: #888; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; transition: 0.3s; }
+        .back-link:hover { color: #007bff; }
+        h1 { color: #333; font-size: 1.5rem; margin-top: 10px; text-align: center; }
+        .game-img { width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0; border: 1px solid #eee; }
+        .description-box { background: #ffffff; margin: 20px 0; }
+        .description-box h3 { font-size: 1.1rem; color: #28a745; /* Number Hunterに合わせた緑色 */ display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .text-small { font-size: 0.9rem; color: #666; white-space: pre-wrap; margin-bottom: 20px; padding: 0 5px; }
         
-        /* ヘッダー・タイトル */
-        h1 { font-size: 1.8rem; color: #28a745; text-align: center; margin-bottom: 10px; }
-        .game-status { text-align: center; font-size: 0.9rem; color: #666; margin-bottom: 20px; }
-
-        /* 画像エリア */
-        .img-container { width: 100%; border-radius: 8px; overflow: hidden; margin-bottom: 20px; border: 1px solid #eee; }
-        .img-container img { width: 100%; height: auto; display: block; }
-
-        /* 説明文エリア */
-        .description-box { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        h2 { font-size: 1.2rem; border-left: 5px solid #28a745; padding-left: 10px; margin-bottom: 15px; color: #333; display: flex; align-items: center; }
-        h2 span { margin-right: 8px; }
-        p { font-size: 0.95rem; margin-bottom: 15px; }
-        ul { padding-left: 20px; font-size: 0.95rem; }
-        ul li { margin-bottom: 10px; }
-
-        /* ★ボタンの修正：幅を85%にして中央寄せ、影をつける */
-        .play-btn { 
-            display: block; 
-            width: 85%; 
-            margin: 30px auto; 
-            padding: 18px; 
-            background: #28a745; 
-            color: #fff; 
-            text-align: center; 
-            text-decoration: none; 
-            border-radius: 30px; 
-            font-size: 1.2rem; 
-            font-weight: bold; 
-            box-shadow: 0 4px 0 #1e7e34; 
-            transition: 0.2s; 
-        }
-        .play-btn:active { 
-            transform: translateY(3px); 
-            box-shadow: 0 1px 0 #1e7e34; 
-        }
-
-        /* フッター（ちょこんとリンク） */
-        footer { text-align: center; padding: 40px 0 20px; font-size: 0.8rem; color: #aaa; }
-        footer a { color: #888; text-decoration: none; margin: 0 10px; }
-        footer a:hover { text-decoration: underline; }
+        /* ボタンのデザインをSort-Masterのグラデーション仕様に */
+        .play-btn { display: block; width: 80%; max-width: 250px; margin: 30px auto; text-align: center; padding: 16px; background: linear-gradient(135deg, #28a745, #20c997); color: #fff; text-decoration: none; border-radius: 12px; font-size: 1.1rem; font-weight: bold; box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3); transition: 0.3s; }
+        .play-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4); }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Number Hunter v2</h1>
-    <p class="game-status">自作ゲーム集 ｜ 反射神経系パズル</p>
-
-    <div class="img-container">
-        <img src="images/IMG_5649.jpeg" alt="Number Hunter v2 ゲーム画面">
-    </div>
-
-    <div class="description-box">
-        <h2><span>💡</span>遊び方</h2>
-        <p>次々現れる数字を順番にハント！ミス即終了の極限スピード勝負です。</p>
-        <ul>
-            <li>「START」ボタンを押すとゲームが始まります。</li>
-            <li>画面内のバブルを「1」から順番にタップしてください。</li>
-            <li>正解をタップすると次の数字が出現します。</li>
-            <li>順番を間違えると即ゲームオーバー！</li>
-        </ul>
-    </div>
+<div class="info-container">
+    <a href="index.html" class="back-link">← ゲーム一覧に戻る</a>
+    
+    <h1>🎮 Number Hunter v2</h1>
+    
+    <img src="images/IMG_5649.jpeg" alt="Number Hunter v2のスクショ" class="game-img">
 
     <div class="description-box">
-        <h2><span>🏆</span>攻略のコツ</h2>
-        <ul>
-            <li><strong>視野を広く持つ：</strong> 今タップしている数字の隣に、次の数字が隠れているかも！</li>
-            <li><strong>リズムが大事：</strong> 一定のテンポで叩き続けるとミスが減ります。</li>
-            <li><strong>焦りは禁物：</strong> 後半ほどバブルが重なるので、正確に狙いましょう。</li>
-        </ul>
+        <h3>💡 遊び方</h3>
+        <div class="text-small">次々現れる数字を順番にハント！ミス即終了の極限スピード勝負です。
+
+● <b>「START」で開始：</b> ボタンを押すと、画面上に数字のバブルが飛び出します。
+● <b>順番にタップ：</b> 画面内のバブルを「1」から順番に素早くタップしてください。
+● <b>連鎖で出現：</b> 正解をタップするたびに、次の数字が新しく出現します。
+● <b>ミスは即終了：</b> 順番を間違えてタップすると即ゲームオーバー！どこまで記録を伸ばせるか挑戦しよう。</div>
+
+        <h3>🏆 攻略のコツ</h3>
+        <div class="text-small">● <b>周辺視野を広く持つ：</b> 今タップしている数字のすぐ隣に、次の数字が隠れていることがよくあります！
+● <b>リズムよく叩く：</b> 一定のテンポでリズムを刻むようにタップすると、ミスが減って集中力も持続します。
+● <b>焦らず正確に：</b> 後半になるほどバブルが重なり合ってきます。焦って違う数字を触らないよう、正確に狙い撃ちましょう！</div>
     </div>
 
-    <a href="https://saaaachi.github.io/Number-Hunter/" class="play-btn">今すぐ遊ぶ！</a>
+    <a href="https://saaaachi.github.io/Number-Hunter/" class="play-btn">今すぐプレイ！</a>
 </div>
 
-<footer>
-    <a href="index.html">ホーム</a> | 
-    <a href="privacy.html">プライバシーポリシー</a>
+<footer style="text-align: center; padding: 40px 0 20px; font-size: 0.7rem; color: #aaa;">
+    <a href="privacy.html" style="color: #aaa; text-decoration: none;">プライバシーポリシー</a>
     <p style="margin-top: 10px;">&copy; 2026 暇つぶしゲームセンター</p>
 </footer>
 
