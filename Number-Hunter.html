@@ -19,14 +19,32 @@
 
         /* 説明文エリア */
         .description-box { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
-        h2 { font-size: 1.2rem; border-left: 5px solid #28a745; padding-left: 10px; margin-bottom: 10px; color: #333; }
+        h2 { font-size: 1.2rem; border-left: 5px solid #28a745; padding-left: 10px; margin-bottom: 15px; color: #333; display: flex; align-items: center; }
+        h2 span { margin-right: 8px; }
         p { font-size: 0.95rem; margin-bottom: 15px; }
         ul { padding-left: 20px; font-size: 0.95rem; }
-        ul li { margin-bottom: 8px; }
+        ul li { margin-bottom: 10px; }
 
-        /* ボタン */
-        .play-btn { display: block; width: 100%; padding: 18px; background: #28a745; color: #fff; text-align: center; text-decoration: none; border-radius: 30px; font-size: 1.2rem; font-weight: bold; margin-top: 30px; box-shadow: 0 4px 0 #1e7e34; transition: 0.2s; }
-        .play-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #1e7e34; }
+        /* ★ボタンの修正：幅を85%にして中央寄せ、影をつける */
+        .play-btn { 
+            display: block; 
+            width: 85%; 
+            margin: 30px auto; 
+            padding: 18px; 
+            background: #28a745; 
+            color: #fff; 
+            text-align: center; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            box-shadow: 0 4px 0 #1e7e34; 
+            transition: 0.2s; 
+        }
+        .play-btn:active { 
+            transform: translateY(3px); 
+            box-shadow: 0 1px 0 #1e7e34; 
+        }
 
         /* フッター（ちょこんとリンク） */
         footer { text-align: center; padding: 40px 0 20px; font-size: 0.8rem; color: #aaa; }
@@ -45,7 +63,7 @@
     </div>
 
     <div class="description-box">
-        <h2>遊び方</h2>
+        <h2><span>💡</span>遊び方</h2>
         <p>次々現れる数字を順番にハント！ミス即終了の極限スピード勝負です。</p>
         <ul>
             <li>「START」ボタンを押すとゲームが始まります。</li>
@@ -56,7 +74,7 @@
     </div>
 
     <div class="description-box">
-        <h2>攻略のコツ</h2>
+        <h2><span>🏆</span>攻略のコツ</h2>
         <ul>
             <li><strong>視野を広く持つ：</strong> 今タップしている数字の隣に、次の数字が隠れているかも！</li>
             <li><strong>リズムが大事：</strong> 一定のテンポで叩き続けるとミスが減ります。</li>
@@ -64,7 +82,7 @@
         </ul>
     </div>
 
-    <a href="number-hunter-game.html" class="play-btn">今すぐ遊ぶ！</a>
+    <a href="https://saaaachi.github.io/Number-Hunter/" class="play-btn">今すぐ遊ぶ！</a>
 </div>
 
 <footer>
