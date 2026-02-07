@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【遊び方】Flash Math - 暇つぶしゲームセンター</title>
+    <style>
+        /* デザイン統一 */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; background-color: #f0f2f5; margin: 0; padding: 15px; color: #444; }
+        .info-container { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .back-link { text-decoration: none; color: #888; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; transition: 0.3s; }
+        .back-link:hover { color: #007bff; }
+        h1 { color: #333; font-size: 1.5rem; margin-top: 10px; text-align: center; }
+        .game-img { width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0; border: 1px solid #eee; }
+        .description-box { background: #ffffff; margin: 20px 0; }
+        
+        /* Flash Mathのテーマカラー（元気なオレンジ） */
+        .description-box h3 { font-size: 1.1rem; color: #ff9800; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .text-small { font-size: 0.9rem; color: #666; white-space: pre-wrap; margin-bottom: 20px; padding: 0 5px; }
+        
+        /* ボタンのデザイン（オレンジ系グラデーション） */
+        .play-btn { display: block; width: 80%; max-width: 250px; margin: 30px auto; text-align: center; padding: 16px; background: linear-gradient(135deg, #ff9800, #ef6c00); color: #fff; text-decoration: none; border-radius: 12px; font-size: 1.1rem; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3); transition: 0.3s; }
+        .play-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4); }
+    </style>
+</head>
+<body>
+
+<div class="info-container">
+    <a href="index.html" class="back-link">← ゲーム一覧に戻る</a>
+    
+    <h1>⚡ Flash Math</h1>
+    
+    <img src="images/IMG_5664.jpeg" alt="Flash Mathのスクショ" class="game-img">
+
+    <div class="description-box">
+        <h3>💡 遊び方</h3>
+        <div class="text-small">瞬時に計算して答えを導き出す、究極のフラッシュ計算ゲームです！
+
+● <b>計算式を確認：</b> 画面中央に「？ ＋ ？」と計算式が一瞬で表示されます。
+● <b>答えを選択：</b> 下に並んだボタンの中から、正しい答えを素早く選んでタップしてください。
+● <b>スピードアップ：</b> スコアが上がるほど制限時間がどんどん短くなります。
+● <b>ノーミスを目指せ：</b> 一度でも計算ミスをするとゲーム終了。正確さと速さが両立できるか挑戦しましょう！</div>
+
+        <h3>🏆 攻略のコツ</h3>
+        <div class="text-small">● <b>一の位だけ見る：</b> 選択肢に迷った時は、一の位を計算するだけで答えが絞れることがあります。
+● <b>リズムに乗る：</b> 「見て、解いて、押す」のリズムを崩さないことが高スコアへの近道です。
+● <b>周辺視野を活用：</b> 数字をじっと見るよりも、画面全体をぼんやり見るようにすると、次の問題に素早く反応できます！</div>
+    </div>
+
+    <a href="https://saaaachi.github.io/Flash-Math/" class="play-btn">今すぐプレイ！</a>
+</div>
+
+<footer style="text-align: center; padding: 40px 0 20px; font-size: 0.7rem; color: #aaa;">
+    <a href="privacy.html" style="color: #aaa; text-decoration: none;">プライバシーポリシー</a>
+    <p style="margin-top: 10px;">&copy; 2026 暇つぶしゲームセンター</p>
+</footer>
+
+</body>
+</html>
