@@ -1,4 +1,169 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Color Finder Puzzle</title>
+    <style>
+        * { box-sizing: border-box; }
+        html, body { 
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background: #f5f5f5; font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; 
+            overflow: hidden; position: fixed;
+        }
+        
+        #ad-top, #ad-bottom { 
+            position: absolute; left: 0; width: 100%; height: 150px; 
+            background: #eee; z-index: 1000; display: flex; align-items: center; justify-content: center;
+        }
+        #ad-top { top: 0; border-bottom: 1px solid #ddd; }
+        #ad-bottom { bottom: 0; border-top: 1px solid #ddd; }
+        iframe { border: none; width: 100%; height: 100%; }
+
+        #main-container {
+            position: absolute;
+            top: 150px; bottom: 150px; left: 0; right: 0;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 10px; z-index: 10;
+        }
+        
+        #ui { margin-bottom: 10px; font-size: 20px; font-weight: bold; color: #444; }
+        
+        #grid { 
+            display: grid; gap: 6px; 
+            width: 100%; max-width: 320px;
+            aspect-ratio: 1/1; 
+            margin: auto;
+            background: #fff; padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .tile { border-radius: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: transform 0.1s; }
+        .tile:active { transform: scale(0.95); }
+
+        #menuScreen { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(255,255,255,0.98); display: flex; flex-direction: column; 
+            align-items: center; justify-content: space-around;
+            z-index: 200; padding: 20px 0;
+        }
+
+        #ad-middle-container { 
+            width: 300px; height: 250px; background: #fafafa; display: none; justify-content: center; align-items: center; border: 1px solid #eee; flex-shrink: 1;
+        }
+        
+        .btn-group { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
+        .menu-btn { padding: 14px 24px; font-size: 18px; border: none; border-radius: 50px; color: white; font-weight: bold; cursor: pointer; text-decoration: none; width: 220px; text-align: center; }
+        #goButton { background: #4caf50; box-shadow: 0 4px #388e3c; }
+        .link-btn { background: #ff4081; box-shadow: 0 4px #c2185b; }
+        .best-info { color: #4caf50; font-size: 18px; font-weight: bold; margin-top: 5px; }
+
+        /* プライバシーポリシーのリンク用 */
+        .footer-link { font-size: 12px; color: #999; text-decoration: none; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div id="ad-top"><iframe src="ad.html" id="frame-top"></iframe></div>
+
+    <div id="main-container">
+        <div id="ui">LEVEL: <span id="lv">1</span></div>
+        <div id="grid"></div>
+        
+        <div id="menuScreen">
+            <div style="text-align:center;">
+                <h2 id="menuTitle" style="color:#4caf50; margin:0; font-size: 28px;">COLOR FINDER</h2>
+                <div class="best-info">BEST: LV <span id="best-ui">1</span></div>
+            </div>
+
+            <div id="ad-middle-container">
+                <script src="https://adm.shinobi.jp/s/1e6de436ea850948e238e975a93767eb"></script>
+                </div>
+
+            <div class="btn-group" id="btnGroup">
+                <button id="goButton" class="menu-btn">GAME START</button>
+                <a href="https://saaaachi.github.io/" class="menu-btn link-btn">他のゲームはこちら</a>
+                <a href="https://saaaachi.github.io/privacy.html" class="footer-link">プライバシーポリシー</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="ad-bottom"><iframe src="ad.html" id="frame-bottom"></iframe></div>
+
+    <script>
+        const grid = document.getElementById("grid"),
+              lvDisp = document.getElementById("lv"),
+              menuScreen = document.getElementById("menuScreen"),
+              menuTitle = document.getElementById("menuTitle"),
+              bestUi = document.getElementById("best-ui"),
+              goButton = document.getElementById("goButton"),
+              adMid = document.getElementById("ad-middle-container"),
+              btnGroup = document.getElementById("btnGroup");
+
+        let level = 1;
+        let bestLevel = localStorage.getItem("color_finder_best") || 1;
+
+        window.onload = () => { bestUi.innerText = bestLevel; };
+
+        goButton.onclick = () => {
+            menuScreen.style.display = "none";
+            adMid.style.display = "none";
+            level = 1;
+            initLevel();
+        };
+
+        function initLevel() {
+            lvDisp.innerText = level;
+            grid.innerHTML = "";
+            const side = Math.min(7, 2 + Math.floor(level / 4));
+            grid.style.gridTemplateColumns = `repeat(${side}, 1fr)`;
+            
+            // 明るい背景に合わせて、少し鮮やかな色が出るように調整
+            const h = Math.floor(Math.random() * 360);
+            const s = 50 + Math.floor(Math.random() * 30);
+            const l = 40 + Math.floor(Math.random() * 20);
+            const diff = Math.max(2, 18 - (level * 0.5));
+            const targetIdx = Math.floor(Math.random() * (side * side));
+
+            for(let i = 0; i < side * side; i++) {
+                const tile = document.createElement("div");
+                tile.className = "tile";
+                if(i === targetIdx) {
+                    tile.style.backgroundColor = `hsl(${h}, ${s}%, ${l + diff}%)`;
+                    tile.onpointerdown = (e) => { 
+                        e.preventDefault(); 
+                        level++; 
+                        if(level > bestLevel) { 
+                            bestLevel = level; 
+                            localStorage.setItem("color_finder_best", bestLevel); 
+                            bestUi.innerText = bestLevel; 
+                        } 
+                        initLevel(); 
+                    };
+                } else {
+                    tile.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
+                    tile.onpointerdown = (e) => { e.preventDefault(); gameOver(); };
+                }
+                grid.appendChild(tile);
+            }
+        }
+
+        function gameOver() {
+            menuTitle.innerText = "GAME OVER";
+            menuTitle.style.color = "#f44336";
+            goButton.innerText = "RETRY";
+            btnGroup.style.opacity = "0";
+            btnGroup.style.pointerEvents = "none";
+            adMid.style.display = "flex"; 
+            menuScreen.style.display = "flex";
+            setTimeout(() => { btnGroup.style.opacity = "1"; btnGroup.style.pointerEvents = "auto"; }, 600);
+        }
+
+        setInterval(() => {
+            document.querySelectorAll('iframe').forEach(f => {
+                const s = f.src; f.src = "about:blank"; setTimeout(() => f.src = s, 100);
+            });
+        }, 30000);
+    </script>
+</body>
+</html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
