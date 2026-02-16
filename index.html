@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1299640300068792"
-     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>暇つぶしゲームセンター</title>
@@ -14,10 +12,33 @@
         h1 { margin: 0; font-size: 1.3rem; color: #333; }
         header p { font-size: 0.75rem; color: #777; margin: 5px 0 0; }
 
-        /* リストを囲むコンテナ */
+        /* ジャンル分けタブのスタイル */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tab-btn {
+            padding: 8px 15px;
+            border: none;
+            background: #fff;
+            color: #555;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+        .tab-btn.active {
+            background: #007bff;
+            color: #fff;
+        }
+
         .container { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
 
-        /* ゲームカード：横並び＆高さを抑える */
         .game-card { 
             background: #fff; 
             border-radius: 12px; 
@@ -30,9 +51,9 @@
             color: inherit;
             transition: 0.2s;
         }
-        .game-card:hover { transform: scale(1.01); background-color: #fafafa; }
+        /* ジャンル分けで非表示にする用 */
+        .game-card.hidden { display: none; }
 
-        /* 左側の写真：さらにコンパクトに */
         .thumb-img { 
             width: 55px; 
             height: 55px; 
@@ -43,26 +64,17 @@
             border: 1px solid #f0f0f0;
         }
 
-        /* 中央のテキストエリア：幅を自動調整 */
-        .game-info { 
-            flex-grow: 1; 
-            text-align: left;
-            min-width: 0; /* 文字溢れ防止 */
-        }
-
+        .game-info { flex-grow: 1; text-align: left; min-width: 0; }
         .game-info h3 { margin: 0; font-size: 0.95rem; color: #333; }
-        
-        /* 説明文を1行に限定 */
         .game-info p { 
             font-size: 0.7rem; 
             color: #888; 
             margin: 2px 0 0; 
             white-space: nowrap; 
             overflow: hidden; 
-            text-overflow: ellipsis; /* はみ出た分を「...」にする */
+            text-overflow: ellipsis;
         }
 
-        /* 右端のボタン：小さくスッキリ */
         .btn { 
             padding: 5px 12px; 
             background: linear-gradient(135deg, #007bff, #0056b3); 
@@ -72,8 +84,12 @@
             font-size: 0.7rem; 
             font-weight: bold;
             margin-left: 10px;
-            flex-shrink: 0; /* ボタンが潰れないように */
+            flex-shrink: 0;
         }
+
+        /* 広告枠の調整 */
+        .ad-section { text-align: center; margin: 15px 0; }
+        .ad-label { font-size: 10px; color: #aaa; margin-bottom: 5px; }
     </style>
 </head>
 <body>
@@ -82,208 +98,183 @@
     <h1>🎮 暇つぶしゲームセンター</h1>
     <p>サクッと遊べる自作ゲーム集</p>
 </header>
-<div style="text-align: center; margin: 15px 0 25px 0;">
-<p style="font-size: 10px; color: #aaa; margin-bottom: 5px;">スポンサーリンク</p>
-<script src="https://adm.shinobi.jp/s/5db4a7fbe01338f43cf23e2c9e7ec6bf"></script>
+
+<div class="ad-section">
+    <p class="ad-label">スポンサーリンク</p>
+    <div id="im-b0b633dadc5c4d94b04c93ce540aabc2">
+        <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
+        <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924127,type:"banner",display:"inline",elementid:"im-b0b633dadc5c4d94b04c93ce540aabc2"})</script>
     </div>
+</div>
+
+<div class="tab-container">
+    <button class="tab-btn active" onclick="filterGame('all')">すべて</button>
+    <button class="tab-btn" onclick="filterGame('action')">アクション</button>
+    <button class="tab-btn" onclick="filterGame('puzzle')">パズル</button>
+    <button class="tab-btn" onclick="filterGame('math')">脳トレ・計算</button>
+</div>
 
 <div class="container">
-    <div class="game-card">
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5591.jpeg" alt="Task Master" class="thumb-img">
-        <div class="game-info">
-            <h3>Task Master</h3>
-            <p>次々現れる注文を正確にクリアしよう！集中力が鍵。</p>
-        </div>
+        <div class="game-info"><h3>Task Master</h3><p>次々現れる注文を正確にクリアしよう！</p></div>
         <a href="Task-Master.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="puzzle">
         <img src="images/IMG_5619.jpeg" alt="Sort-Master" class="thumb-img">
-        <div class="game-info">
-            <h3>Sort-Master</h3>
-            <p>同じ色のボールを賢く仕分けて、ブロックを完成させよう！</p>
-        </div>
+        <div class="game-info"><h3>Sort-Master</h3><p>同じ色のボールを賢く仕分けてブロックを完成！</p></div>
         <a href="Sort-Master.html" class="btn">遊ぶ</a>
     </div>
-    
-    <div class="game-card">
+
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5649.jpeg" alt="Number Hunter v2" class="thumb-img">
-        <div class="game-info">
-            <h3>Number Hunter v2</h3>
-            <p>次々現れる数字を順番にハント！ミス即終了の極限スピード勝負。</p>
-        </div>
+        <div class="game-info"><h3>Number Hunter v2</h3><p>次々現れる数字を順番にハント！</p></div>
         <a href="Number-Hunter.html" class="btn">遊ぶ</a>
     </div>
 
-        <div class="game-card">
-        <img src="images/IMG_5659.jpeg" alt="Blackhole-drop" class="thumb-img">
-        <div class="game-info">
-            <h3>Blackhole-drop</h3>
-            <p>狙いを定めてドロップ！ブラックホールに吸い込まれる感覚がクセになる物理パズル。</p>
+    <div class="ad-section">
+        <p class="ad-label">スポンサーリンク</p>
+        <div id="im-cfabc7b1544b41a79e939d9765fcef29">
+            <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
+            <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924128,type:"banner",display:"inline",elementid:"im-cfabc7b1544b41a79e939d9765fcef29"})</script>
         </div>
+    </div>
+
+    <div class="game-card" data-category="puzzle">
+        <img src="images/IMG_5659.jpeg" alt="Blackhole-drop" class="thumb-img">
+        <div class="game-info"><h3>Blackhole-drop</h3><p>ブラックホールに吸い込まれる物理パズル。</p></div>
         <a href="Blackhole-drop.html" class="btn">遊ぶ</a>
     </div>
-    
-        <div class="game-card">
+
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5661.jpeg" alt="Tile Tap" class="thumb-img">
-        <div class="game-info">
-            <h3>Tile Tap</h3>
-            <p>流れてくるタイルをリズムよくタップ！スピードに付いていけるか？中毒性抜群のリズムアクション。</p>
-        </div>
+        <div class="game-info"><h3>Tile Tap</h3><p>リズムよくタップ！中毒性抜群のリズムアクション。</p></div>
         <a href="Tile-tap.html" class="btn">遊ぶ</a>
     </div>
-    
-    <div class="game-card">
+
+    <div class="game-card" data-category="math">
         <img src="images/IMG_5663.jpeg" alt="Make 10" class="thumb-img">
-        <div class="game-info">
-            <h3>Make 10</h3>
-            <p>足して10を作るだけ！シンプルなのに脳がフル回転する計算パズル。あなたは制限時間に勝てるか？</p>
-        </div>
+        <div class="game-info"><h3>Make 10</h3><p>足して10を作るだけ！脳がフル回転する計算パズル。</p></div>
         <a href="Make10.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="math">
         <img src="images/IMG_5667.jpeg" alt="10-Stack" class="thumb-img">
-        <div class="game-info">
-            <h3>10-Stack</h3>
-            <p>数字を積んで、ぴったり10を作れ！戦略的なHOLD機能がカギを握る、新感覚の落ち物計算パズル。</p>
-        </div>
+        <div class="game-info"><h3>10-Stack</h3><p>数字を積んで、ぴったり10を作れ！</p></div>
         <a href="10-stack.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="math">
         <img src="images/IMG_5664.jpeg" alt="Flash Math" class="thumb-img">
-        <div class="game-info">
-            <h3>Flash Math</h3>
-            <p>瞬発力が試されるフラッシュ計算！次々と出てくる計算問題を光速で解き明かせ。脳の活性化に最適！</p>
-        </div>
+        <div class="game-info"><h3>Flash Math</h3><p>瞬発力が試されるフラッシュ計算！</p></div>
         <a href="Flash-Math.html" class="btn">遊ぶ</a>
     </div>
-    <div class="game-card" style="display: flex; flex-direction: column; align-items: flex-start; padding: 2px; margin-bottom: 2px;">
-    <p style="font-size: 10px; color: #aaa; margin: 0 0 2px 0; padding-left: 2px;">スポンサーリンク</p>
-    <div style="width: 100%; display: flex; justify-content: flex-start; overflow: hidden; line-height: 1;">
-        <script src="https://adm.shinobi.jp/s/7dd667d3339a141636d465b3a22b9ccc"></script>
+
+    <div class="ad-section">
+        <p class="ad-label">スポンサーリンク</p>
+        <div id="im-da93014151024a3684f77ec3d09de370">
+            <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
+            <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924129,type:"banner",display:"inline",elementid:"im-da93014151024a3684f77ec3d09de370"})</script>
         </div>
-　　　</div>
-    <div class="game-card">
+    </div>
+
+    <div class="game-card" data-category="math">
         <img src="images/IMG_5670.jpeg" alt="Slime Math Easy" class="thumb-img">
-        <div class="game-info">
-            <h3>Slime Math Easy</h3>
-            <p>10秒間の算数チャレンジ！スライムと一緒に、足し算・引き算を素早く解いて脳をリフレッシュしよう。</p>
-        </div>
+        <div class="game-info"><h3>Slime Math Easy</h3><p>スライムと一緒に、足し算・引き算！</p></div>
         <a href="Slime-math.html" class="btn">遊ぶ</a>
     </div>
-</div>
-    
-    <div class="game-card">
+
+    <div class="game-card" data-category="math">
         <img src="images/IMG_5672.jpeg" alt="Slime Math Challenge" class="thumb-img">
-        <div class="game-info">
-            <h3>Slime Math Challenge</h3>
-            <p>限界突破の5秒制限！Easy版では物足りないあなたへ贈る、究極の脳トレ算数パズル。</p>
-        </div>
+        <div class="game-info"><h3>Slime Math Challenge</h3><p>限界突破の5秒制限！究極の脳トレ算数。</p></div>
         <a href="Slime-math2.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="puzzle">
         <img src="images/IMG_5683.jpeg" alt="Color Finder" class="thumb-img">
-        <div class="game-info">
-            <h3>Color Finder</h3>
-            <p>色彩感覚テスト！仲間外れの色を1つ見つけるだけの、シンプルで奥が深いパズルゲーム。</p>
-        </div>
+        <div class="game-info"><h3>Color Finder</h3><p>色彩感覚テスト！仲間外れの色を1つ見つけよう。</p></div>
         <a href="Color-Finder.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5688.jpeg" alt="Speedy BBQ" class="thumb-img">
-        <div class="game-info">
-            <h3>Speedy BBQ</h3>
-            <p>極限の焼き加減に挑め！生でも焦げでも即終了。瞬発力が試される絶品BBQアクション。</p>
-        </div>
+        <div class="game-info"><h3>Speedy BBQ</h3><p>極限の焼き加減に挑め！絶品BBQアクション。</p></div>
         <a href="Speedy-BBQ.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="puzzle">
         <img src="images/IMG_5689.jpeg" alt="Memory Match" class="thumb-img">
-        <div class="game-info">
-            <h3>Memory Match</h3>
-            <p>爆速神経衰弱！20秒以内にどれだけペアを揃えられるか？記憶力と反射神経が試される脳トレパズル。</p>
-        </div>
+        <div class="game-info"><h3>Memory Match</h3><p>爆速神経衰弱！記憶力と反射神経の勝負。</p></div>
         <a href="memory-match.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="puzzle">
         <img src="images/IMG_5690.jpeg" alt="Hidden Target" class="thumb-img">
-        <div class="game-info">
-            <h3>Hidden Target</h3>
-            <p>脳がバグる間違い探し！似た漢字の中から1つだけ違う文字を爆速で見つけ出せ。集中力の限界に挑戦！</p>
-        </div>
+        <div class="game-info"><h3>Hidden Target</h3><p>間違い探し！似た漢字の中から1つを見つけ出せ。</p></div>
         <a href="hidden-target.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5695.jpeg" alt="Balloon Pop" class="thumb-img">
-        <div class="game-info">
-            <h3>Balloon Pop</h3>
-            <p>空飛ぶ風船をタップで破壊！赤い風船だけを狙う集中力と、スピードに負けない反射神経が試される爽快アクション。</p>
-        </div>
+        <div class="game-info"><h3>Balloon Pop</h3><p>空飛ぶ風船をタップで破壊！爽快アクション。</p></div>
         <a href="balloon-pop.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5707.jpeg" alt="Shadow Shapes" class="thumb-img">
-        <div class="game-info">
-            <h3>Shadow Shapes</h3>
-            <p>図形の「影」を瞬時に見分けろ！回転するお題に脳がバグる？空間認識能力が試される直感パズルアクション。</p>
-        </div>
+        <div class="game-info"><h3>Shadow Shapes</h3><p>図形の「影」を瞬時に見分けろ！</p></div>
         <a href="shadow-shapes.html" class="btn">遊ぶ</a>
     </div>
-        <div class="game-card" style="display: flex; flex-direction: column; align-items: flex-start; padding: 2px; margin-bottom: 2px;">
-    <p style="font-size: 10px; color: #aaa; margin: 0 0 2px 0; padding-left: 2px;">スポンサーリンク</p>
-    <div style="width: 100%; display: flex; justify-content: flex-start; overflow: hidden; line-height: 1;">
-        <script src="https://adm.shinobi.jp/s/7dd667d3339a141636d465b3a22b9ccc"></script>
-        </div>
-    
-        </div>
-    <div class="game-card">
+
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5708.jpeg" alt="Breakout Slime" class="thumb-img">
-        <div class="game-info">
-            <h3>Breakout Slime</h3>
-            <p>王道にして至高のブロック崩し！加速するボールをパドルで操り、全ブロックを破壊し尽くせ。無限に続くステージで限界に挑め！</p>
-        </div>
+        <div class="game-info"><h3>Breakout Slime</h3><p>王道にして至高のブロック崩し！</p></div>
         <a href="breakout-slime.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5710.jpeg" alt="Sweets Tower" class="thumb-img">
-        <div class="game-info">
-            <h3>Sweets Tower</h3>
-            <p>美味しそうなパンケーキを高く積み上げろ！ハミ出すと削られるシビアな判定…究極の集中力で「世界一のタワー」を目指そう🥞</p>
-        </div>
+        <div class="game-info"><h3>Sweets Tower</h3><p>パンケーキを高く積み上げろ🥞</p></div>
         <a href="sweets-tower.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5711.jpeg" alt="Speed RPS" class="thumb-img">
-        <div class="game-info">
-            <h3>Speed RPS</h3>
-            <p>究極の「あとだしジャンケン」！指示に合わせて勝つか負けるか瞬時に判断。スコアが上がるほど速くなる制限時間に君の脳はついていけるか！？</p>
-        </div>
+        <div class="game-info"><h3>Speed RPS</h3><p>究極の「あとだしジャンケン」！</p></div>
         <a href="speed-rps.html" class="btn">遊ぶ</a>
     </div>
 
-    <div class="game-card">
+    <div class="game-card" data-category="action">
         <img src="images/IMG_5725.jpeg" alt="Tap Mania" class="thumb-img">
-        <div class="game-info">
-            <h3>Tap Mania 10s</h3>
-            <p>10秒間の超連打バトル！叩けば叩くほどボタンが熱く燃え上がる。あなたの指先は、この限界を超えられるか！？</p>
-        </div>
+        <div class="game-info"><h3>Tap Mania 10s</h3><p>10秒間の超連打バトル！叩け！</p></div>
         <a href="tap-mania.html" class="btn">遊ぶ</a>
     </div>
-    </a>
-    </div><footer style="text-align: center; padding: 40px 0 20px; font-size: 0.7rem; color: #aaa;">
+</div>
+
+<footer style="text-align: center; padding: 40px 0 20px; font-size: 0.7rem; color: #aaa;">
     <a href="privacy.html" style="color: #aaa; text-decoration: none;">プライバシーポリシー</a>
     <p style="margin-top: 10px;">&copy; 2026 暇つぶしゲームセンター</p>
 </footer>
+
+<script>
+    function filterGame(category) {
+        // ボタンの見た目を切り替え
+        const buttons = document.querySelectorAll('.tab-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+
+        // カードの表示・非表示
+        const cards = document.querySelectorAll('.game-card');
+        cards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
