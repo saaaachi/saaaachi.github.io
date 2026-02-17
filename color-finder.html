@@ -1,188 +1,19 @@
-<!DOCTYPE html><!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Color Finder Puzzle</title>
-    <style>
-        * { box-sizing: border-box; }
-        html, body { 
-            margin: 0; padding: 0; width: 100%; height: 100%;
-            background: #f5f5f5; font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; 
-            overflow: hidden; position: fixed;
-        }
-        
-        #ad-top, #ad-bottom { 
-            position: absolute; left: 0; width: 100%; height: 150px; 
-            background: #eee; z-index: 1000; display: flex; align-items: center; justify-content: center;
-        }
-        #ad-top { top: 0; border-bottom: 1px solid #ddd; }
-        #ad-bottom { bottom: 0; border-top: 1px solid #ddd; }
-        iframe { border: none; width: 100%; height: 100%; }
-
-        #main-container {
-            position: absolute;
-            top: 150px; bottom: 150px; left: 0; right: 0;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            padding: 10px; z-index: 10;
-        }
-        
-        #ui { margin-bottom: 10px; font-size: 20px; font-weight: bold; color: #444; }
-        
-        #grid { 
-            display: grid; gap: 6px; 
-            width: 100%; max-width: 320px;
-            aspect-ratio: 1/1; 
-            margin: auto;
-            background: #fff; padding: 10px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .tile { border-radius: 8px; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: transform 0.1s; }
-        .tile:active { transform: scale(0.95); }
-
-        #menuScreen { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(255,255,255,0.98); display: flex; flex-direction: column; 
-            align-items: center; justify-content: space-around;
-            z-index: 200; padding: 20px 0;
-        }
-
-        #ad-middle-container { 
-            width: 300px; height: 250px; background: #fafafa; display: none; justify-content: center; align-items: center; border: 1px solid #eee; flex-shrink: 1;
-        }
-        
-        .btn-group { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
-        .menu-btn { padding: 14px 24px; font-size: 18px; border: none; border-radius: 50px; color: white; font-weight: bold; cursor: pointer; text-decoration: none; width: 220px; text-align: center; }
-        #goButton { background: #4caf50; box-shadow: 0 4px #388e3c; }
-        .link-btn { background: #ff4081; box-shadow: 0 4px #c2185b; }
-        .best-info { color: #4caf50; font-size: 18px; font-weight: bold; margin-top: 5px; }
-
-        /* プライバシーポリシーのリンク用 */
-        .footer-link { font-size: 12px; color: #999; text-decoration: none; margin-top: 10px; }
-    </style>
-</head>
-<body>
-    <div id="ad-top"><iframe src="ad.html" id="frame-top"></iframe></div>
-
-    <div id="main-container">
-        <div id="ui">LEVEL: <span id="lv">1</span></div>
-        <div id="grid"></div>
-        
-        <div id="menuScreen">
-            <div style="text-align:center;">
-                <h2 id="menuTitle" style="color:#4caf50; margin:0; font-size: 28px;">COLOR FINDER</h2>
-                <div class="best-info">BEST: LV <span id="best-ui">1</span></div>
-            </div>
-
-            <div id="ad-middle-container">
-                <script src="https://adm.shinobi.jp/s/1e6de436ea850948e238e975a93767eb"></script>
-                </div>
-
-            <div class="btn-group" id="btnGroup">
-                <button id="goButton" class="menu-btn">GAME START</button>
-                <a href="https://saaaachi.github.io/" class="menu-btn link-btn">他のゲームはこちら</a>
-                <a href="https://saaaachi.github.io/privacy.html" class="footer-link">プライバシーポリシー</a>
-            </div>
-        </div>
-    </div>
-
-    <div id="ad-bottom"><iframe src="ad.html" id="frame-bottom"></iframe></div>
-
-    <script>
-        const grid = document.getElementById("grid"),
-              lvDisp = document.getElementById("lv"),
-              menuScreen = document.getElementById("menuScreen"),
-              menuTitle = document.getElementById("menuTitle"),
-              bestUi = document.getElementById("best-ui"),
-              goButton = document.getElementById("goButton"),
-              adMid = document.getElementById("ad-middle-container"),
-              btnGroup = document.getElementById("btnGroup");
-
-        let level = 1;
-        let bestLevel = localStorage.getItem("color_finder_best") || 1;
-
-        window.onload = () => { bestUi.innerText = bestLevel; };
-
-        goButton.onclick = () => {
-            menuScreen.style.display = "none";
-            adMid.style.display = "none";
-            level = 1;
-            initLevel();
-        };
-
-        function initLevel() {
-            lvDisp.innerText = level;
-            grid.innerHTML = "";
-            const side = Math.min(7, 2 + Math.floor(level / 4));
-            grid.style.gridTemplateColumns = `repeat(${side}, 1fr)`;
-            
-            // 明るい背景に合わせて、少し鮮やかな色が出るように調整
-            const h = Math.floor(Math.random() * 360);
-            const s = 50 + Math.floor(Math.random() * 30);
-            const l = 40 + Math.floor(Math.random() * 20);
-            const diff = Math.max(2, 18 - (level * 0.5));
-            const targetIdx = Math.floor(Math.random() * (side * side));
-
-            for(let i = 0; i < side * side; i++) {
-                const tile = document.createElement("div");
-                tile.className = "tile";
-                if(i === targetIdx) {
-                    tile.style.backgroundColor = `hsl(${h}, ${s}%, ${l + diff}%)`;
-                    tile.onpointerdown = (e) => { 
-                        e.preventDefault(); 
-                        level++; 
-                        if(level > bestLevel) { 
-                            bestLevel = level; 
-                            localStorage.setItem("color_finder_best", bestLevel); 
-                            bestUi.innerText = bestLevel; 
-                        } 
-                        initLevel(); 
-                    };
-                } else {
-                    tile.style.backgroundColor = `hsl(${h}, ${s}%, ${l}%)`;
-                    tile.onpointerdown = (e) => { e.preventDefault(); gameOver(); };
-                }
-                grid.appendChild(tile);
-            }
-        }
-
-        function gameOver() {
-            menuTitle.innerText = "GAME OVER";
-            menuTitle.style.color = "#f44336";
-            goButton.innerText = "RETRY";
-            btnGroup.style.opacity = "0";
-            btnGroup.style.pointerEvents = "none";
-            adMid.style.display = "flex"; 
-            menuScreen.style.display = "flex";
-            setTimeout(() => { btnGroup.style.opacity = "1"; btnGroup.style.pointerEvents = "auto"; }, 600);
-        }
-
-        setInterval(() => {
-            document.querySelectorAll('iframe').forEach(f => {
-                const s = f.src; f.src = "about:blank"; setTimeout(() => f.src = s, 100);
-            });
-        }, 30000);
-    </script>
-</body>
-</html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>【遊び方】Color Finder - 暇つぶしゲームセンター</title>
     <style>
+        /* あなたが気に入っている「遊び方ページ」の見た目をそのまま維持します */
         body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; background-color: #1a1a1a; margin: 0; padding: 15px; color: #eee; }
         .info-container { max-width: 600px; margin: 0 auto; background: #2a2a2a; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
         .back-link { text-decoration: none; color: #aaa; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; }
-        .back-link:hover { color: #4caf50; }
         h1 { color: #4caf50; font-size: 1.5rem; margin-top: 10px; text-align: center; }
         .game-img { width: 100%; border-radius: 12px; margin: 20px 0; border: 1px solid #444; }
-        
         .description-box h3 { font-size: 1.1rem; color: #4caf50; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
         .text-small { font-size: 0.9rem; color: #ccc; white-space: pre-wrap; margin-bottom: 20px; padding: 0 5px; }
-        
         .play-btn { display: block; width: 80%; max-width: 250px; margin: 30px auto; text-align: center; padding: 16px; background: linear-gradient(135deg, #66bb6a, #2e7d32); color: #fff; text-decoration: none; border-radius: 12px; font-size: 1.1rem; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; }
-        .play-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4); }
-
         .ad-space { text-align: center; margin: 15px 0; }
         .ad-label { font-size: 10px; color: #666; margin-bottom: 5px; }
     </style>
@@ -203,22 +34,14 @@
 
     <div class="description-box">
         <h3>🔍 色彩感覚の限界に挑め！</h3>
-        <div class="text-small">並んだタイルの中から「1枚だけ色が違うもの」を探し出すシンプルパズル。
-
-● <b>加速する難易度：</b> レベルが上がるごとにタイルの数が増え、色の差はどんどんわずかなものに…。
-● <b>ミス厳禁：</b> お手つきした瞬間にゲームオーバー！慎重かつ大胆なタップが求められます。
-
+        <div class="text-small">並んだタイルの中から「1枚だけ色が違うもの」を探し出すシンプルパズル。</div>
+        
         <h3>🏆 高スコアへのヒント</h3>
-        <div class="text-small">● <b>視野を広く：</b> 1枚ずつ見るより、画面全体をぼんやり眺めると違和感のある場所が浮き上がって見えることがあります。
-● <b>明るさを調整：</b> 画面が暗いと難易度が跳ね上がります。本気で挑むなら画面を少し明るくしてみて！</div>
+        <div class="text-small">視野を広く！画面全体をぼんやり眺めると違和感のある場所が浮き上がって見えます。</div>
     </div>
 
     <a href="https://saaaachi.github.io/Color-Finder/" class="play-btn">色探しを始める！</a>
 </div>
-
-<footer style="text-align: center; padding: 40px 0 20px; font-size: 0.7rem; color: #666;">
-    <p>&copy; 2026 暇つぶしゲームセンター</p>
-</footer>
 
 </body>
 </html>
