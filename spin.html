@@ -3,136 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>遊び方 - Spin Escape</title>
+    <title>【遊び方】Spin Escape - 暇つぶしゲームセンター</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f8f9fa;
-            color: #333;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: white;
-            min-height: 100vh;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
-        }
-        h1 {
-            color: #ff4757;
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-        .ad-container {
-            width: 300px;
-            height: 250px;
-            background: #eee;
-            margin: 20px auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #ddd;
-        }
-        .description {
-            background: #fff5f5;
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            border-left: 5px solid #ff4757;
-        }
-        .how-to-play {
-            margin: 20px 0;
-        }
-        .how-to-play h2 {
-            font-size: 20px;
-            color: #333;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-        }
-        .play-button {
-            display: block;
-            width: 250px;
-            margin: 30px auto;
-            padding: 15px;
-            background-color: #ff4757;
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: bold;
-            border-radius: 50px;
-            box-shadow: 0 4px #b3323d;
-            transition: 0.2s;
-        }
-        .play-button:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px #b3323d;
-        }
-        .footer-links {
-            text-align: center;
-            margin-top: 40px;
-            padding-bottom: 20px;
-        }
-        .footer-links a {
-            color: #666;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 14px;
-        }
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-        .point {
-            font-weight: bold;
-            color: #ff4757;
-        }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; background-color: #f0f2f5; margin: 0; padding: 15px; color: #444; }
+        .info-container { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .back-link { text-decoration: none; color: #888; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; transition: 0.3s; }
+        .back-link:hover { color: #007bff; }
+        h1 { color: #333; font-size: 1.5rem; margin-top: 10px; text-align: center; }
+        .game-img { width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0; border: 1px solid #eee; }
+        .description-box { background: #ffffff; margin: 20px 0; }
+        .description-box h3 { font-size: 1.1rem; color: #ff4757; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .text-small { font-size: 0.9rem; color: #666; white-space: pre-wrap; margin-bottom: 20px; padding: 0 5px; }
+        .play-btn { display: block; width: 80%; max-width: 250px; margin: 30px auto; text-align: center; padding: 16px; background: linear-gradient(135deg, #ff4757, #ee5253); color: #fff; text-decoration: none; border-radius: 12px; font-size: 1.1rem; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3); transition: 0.3s; }
+        .play-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4); }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h1>Spin Escape</h1>
-
-    <div class="ad-container">
-        <div id="im-8b492cea6667490da71c488bdcc7cfc8">
-            <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
-            <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924211,type:"banner",display:"inline",elementid:"im-8b492cea6667490da71c488bdcc7cfc8"})</script>
-        </div>
-    </div>
-
-    <div class="description">
-        ぐるぐる回る自機をコントロールして、上から落ちてくる赤い壁をすり抜けろ！
-    </div>
-
-    <div class="how-to-play">
-        <h2>遊び方</h2>
-        <ul>
-            <li>画面を<span class="point">長押し</span>している間、自機が円形に回転します。</li>
-            <li>指を<span class="point">離す</span>と、その場でピタッと止まります。</li>
-            <li>壁にある隙間に自機が重なるようにタイミングを合わせてください。</li>
-            <li>少しでも赤い壁に触れるとゲームオーバーです。</li>
-        </ul>
-    </div>
-
+<div class="info-container">
+    <a href="../index.html" class="back-link">← ゲーム一覧に戻る</a>
     
+    <h1>🌀 Spin Escape</h1>
 
-    <a href="index.html" class="play-button">ゲームで遊ぶ！</a>
-
-    <div class="ad-container">
-        <div id="im-8b492cea6667490da71c488bdcc7cfc8-2">
-            <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924211,type:"banner",display:"inline",elementid:"im-8b492cea6667490da71c488bdcc7cfc8-2"})</script>
+    <div style="text-align: center; margin: 15px 0 25px 0;">
+        <p style="font-size: 10px; color: #aaa; margin-bottom: 5px;">スポンサーリンク</p>
+        <div id="im-857ade7f9e284af080ed831644ffde78">
+            <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
+            <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924331,type:"banner",display:"inline",elementid:"im-857ade7f9e284af080ed831644ffde78"})</script>
         </div>
     </div>
 
-    <div class="footer-links">
-        <a href="../">← 戻る</a>
-        <a href="../privacy.html">プライバシーポリシー</a>
-    </div>
-</div>
+    <img src="images/IMG_5793.jpeg" alt="Spin Escapeのスクショ" class="game-img">
 
+    <div class="description-box">
+        <h3>💡 遊び方</h3>
+        <div class="text-small">ぐるぐる回る自機をコントロールして、上から落ちてくる赤い壁をすり抜けろ！
+
+● <b>自機の回転：</b> 画面を長押ししている間、自機が円形に回転します。
+● <b>停止：</b> 指を離すと、その場でピタッと止まります。
+● <b>回避：</b> 壁にある隙間に自機が重なるようにタイミングを合わせてください。
+● <b>スピードアップ：</b> スコアが上がるほど壁のスピードもアップします！</div>
+
+        <h3>🏆 攻略のコツ</h3>
+        <div class="text-small">● <b>早めにポジション取り：</b> 壁が来る前に、大体の隙間の位置へ自機を移動させておくのがコツです。
+● <b>ちょん押しを活用：</b> 長押しだけでなく、短くタップすることで微調整がしやすくなります。
+● <b>中心を意識：</b> 自機は常に一定の半径で回っています。その軌道を頭に入れると隙間を狙いやすくなります！</div>
+    </div>
+
+    <a href="https://saaaachi.github.io/sopin/" class="play-btn">今すぐプレイ！</a>
+
+    <div style="text-align:center; margin:30px 0;">
+        <p style="font-size:10px; color:#aaa;">スポンサーリンク</p>
+        <div id="im-f10f679d4a73415187645b084707ace3">
+            <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924332,type:"banner",display:"inline",elementid:"im-f10f679d4a73415187645b084707ace3"})</script>
+        </div>
+    </div>
+
+<footer style="text-align: center; padding: 40px 0 20px; font-size: 0.7rem; color: #aaa;">
+    <a href="../privacy.html" style="color: #aaa; text-decoration: none;">プライバシーポリシー</a>
+    <p style="margin-top: 10px;">&copy; 2026 暇つぶしゲームセンター</p>
+</footer>
+
+</div>
 </body>
 </html>
