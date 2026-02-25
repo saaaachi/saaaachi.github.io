@@ -3,71 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【遊び方】Color Match - 脳トレ・カラーマッチング</title>
+    <title>【遊び方】Color Match - 暇つぶしゲームセンター</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; background-color: #eceff1; margin: 0; padding: 15px; color: #455a64; }
-        .info-container { max-width: 600px; margin: 0 auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .back-link { text-decoration: none; color: #607d8b; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; }
-        h1 { color: #455a64; font-size: 1.5rem; text-align: center; margin-top: 0; }
-        .game-img { width: 100%; border-radius: 12px; margin: 20px 0; border: 1px solid #cfd8dc; }
-        .description-box h3 { color: #4caf50; border-left: 4px solid #4caf50; padding-left: 10px; margin-top: 25px; }
+        /* Make 10の紹介ページと完全にデザインを統一 */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; background-color: #f0f2f5; margin: 0; padding: 15px; color: #444; }
+        .info-container { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .back-link { text-decoration: none; color: #888; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; transition: 0.3s; }
+        .back-link:hover { color: #007bff; }
+        h1 { color: #333; font-size: 1.5rem; margin-top: 10px; text-align: center; }
+        .game-img { width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0; border: 1px solid #eee; }
+        .description-box { background: #ffffff; margin: 20px 0; }
         
-        /* プレイボタン */
-        .play-btn { display: block; width: 220px; margin: 30px auto 15px; text-align: center; padding: 18px; background: #4caf50; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px #388e3c; font-size: 1.1rem; }
-        .play-btn:active { transform: translateY(2px); box-shadow: 0 2px #388e3c; }
-
-        /* ボタン下の小サイズ広告エリア */
-        .small-ad-area { width: 300px; height: 50px; background: rgba(0,0,0,0.03); margin: 20px auto; display: flex; align-items: center; justify-content: center; overflow: hidden; border: 1px dashed #ccc; }
-
-        /* フッターリンク */
-        .footer-links { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #cfd8dc; font-size: 12px; }
-        .footer-links a { color: #78909c; text-decoration: none; margin: 0 10px; }
-        .footer-links a:hover { text-decoration: underline; }
+        /* Color Matchのテーマカラー（知的なグリーン） */
+        .description-box h3 { font-size: 1.1rem; color: #4caf50; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .text-small { font-size: 0.9rem; color: #666; white-space: pre-wrap; margin-bottom: 20px; padding: 0 5px; }
+        
+        /* ボタンのデザイン（グリーン系グラデーション） */
+        .play-btn { display: block; width: 80%; max-width: 250px; margin: 30px auto; text-align: center; padding: 16px; background: linear-gradient(135deg, #4caf50, #43a047); color: #fff; text-decoration: none; border-radius: 12px; font-size: 1.1rem; font-weight: bold; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3); transition: 0.3s; }
+        .play-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4); }
     </style>
 </head>
 <body>
+
 <div class="info-container">
-    <a href="../index.html" class="back-link">← ゲーム一覧に戻る</a>
+    <a href="index.html" class="back-link">← ゲーム一覧に戻る</a>
+    
     <h1>🎨 Color Match</h1>
 
-    <div style="text-align: center;">
-        <p style="font-size: 10px; color: #999; margin-bottom: 5px;">スポンサーリンク</p>
+    <div style="text-align: center; margin: 15px 0 25px 0;">
+        <p style="font-size: 10px; color: #aaa; margin-bottom: 5px;">スポンサーリンク</p>
         <div id="im-857ade7f9e284af080ed831644ffde78">
             <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
             <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924331,type:"banner",display:"inline",elementid:"im-857ade7f9e284af080ed831644ffde78"})</script>
         </div>
     </div>
 
-    <img src="images/color_match_thumb.jpeg" alt="Color Matchのスクショ" class="game-img">
+    <img src="images/IMG_5808.jpeg" alt="Color Matchのスクショ" class="game-img">
 
     <div class="description-box">
         <h3>💡 遊び方</h3>
-        <p>
-            表示される「文字の意味」と「箱の色」が一致しているかを素早く判断する脳トレゲームです！<br>
-            文字の色に惑わされず、正解なら「◯」、不正解なら「✕」をタップしてください。
-        </p>
+        <div class="text-small">「文字の意味」と「箱の色」が合っているかを瞬時に見分ける、脳トレ・マッチングゲームです。
+
+● <b>ルールを確認：</b> 画面中央に「色を表す文字」と「色のついた箱」が表示されます。
+● <b>一致判断：</b> 文字が表す意味（例：あか）と、箱の色（例：■）が同じなら「◯」、違えば「✕」を素早くタップ！
+● <b>惑わされない：</b> 文字自体の「色」はランダムに変わります。色に惑わされず「文字の意味」を読み取ることが重要です。
+● <b>スピード：</b> 正解するほど制限時間は短くなります。</div>
 
         <h3>🏆 攻略のコツ</h3>
-        <p>
-            文字の色はダミーです！「文字が何と書いてあるか」と「下の四角形の色」の2点だけに集中するのがハイスコアの鍵です。
-        </p>
+        <div class="text-small">● <b>色を無視する：</b> 文字が何色で塗られていても関係ありません。「書かれている内容」だけを読み取る脳の切り替えがコツです。
+● <b>リズムを作る：</b> 悩むと時間がなくなります。直感的に◯か✕かを判断するリズムを崩さないようにしましょう。
+● <b>視界を広く：</b> 文字と箱の両方をぼんやり視界に入れることで、文字を「読む」前に「形」として捉えられるようになると爆速になります！</div>
     </div>
 
-    <a href="https://saaaachi.github.io/Color-Match/" class="play-btn">今すぐプレイ！</a>
+    <a href="https://saaaachi.github.io/Color.Match/" class="play-btn">今すぐプレイ！</a>
 
-    <div class="small-ad-area">
-        <div id="im-small-banner">
-            <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
-            <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924211,type:"banner",display:"inline",elementid:"im-small-banner"})</script>
+    <div style="text-align:center; margin:30px 0;">
+        <p style="font-size:10px; color:#aaa;">スポンサーリンク</p>
+        <div id="im-f10f679d4a73415187645b084707ace3">
+            <script>
+              (window.adsbyimobile=window.adsbyimobile||[]).push({
+                pid:84561,
+                mid:590804,
+                asid:1924332,
+                type:"banner",
+                display:"inline",
+                elementid:"im-f10f679d4a73415187645b084707ace3"
+              })
+            </script>
         </div>
     </div>
 
-    <div class="footer-links">
-        <a href="../privacy.html">プライバシーポリシー</a>
-        <a href="../terms.html">利用規約</a>
-        <a href="../contact.html">お問い合わせ</a>
-        <p style="margin-top: 15px; color: #999;">&copy; 2026 Mini Games Collection</p>
-    </div>
+    <footer style="text-align: center; padding: 40px 0 20px; font-size: 0.7rem; color: #aaa;">
+        <a href="privacy.html" style="color: #aaa; text-decoration: none;">プライバシーポリシー</a>
+        <p style="margin-top: 10px;">&copy; 2026 暇つぶしゲームセンター</p>
+    </footer>
 </div>
+
 </body>
 </html>
