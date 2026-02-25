@@ -3,24 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【遊び方】Bark Panic - シュールな防衛ゲーム</title>
+    <title>【遊び方】Bark Panic - 暇つぶしゲームセンター</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; background-color: #fff3e0; margin: 0; padding: 15px; color: #e65100; }
-        .info-container { max-width: 600px; margin: 0 auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .back-link { text-decoration: none; color: #ffa726; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; }
-        h1 { color: #ff5722; font-size: 1.5rem; text-align: center; }
-        .game-img { width: 100%; border-radius: 12px; margin: 20px 0; border: 1px solid #ffe0b2; }
-        .description-box h3 { color: #ff5722; border-left: 4px solid #ff5722; padding-left: 10px; }
-        .play-btn { display: block; width: 200px; margin: 30px auto; text-align: center; padding: 15px; background: #ff5722; color: white; text-decoration: none; border-radius: 30px; font-weight: bold; }
+        /* 他の紹介ページと完全にデザインを統一 */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; background-color: #f0f2f5; margin: 0; padding: 15px; color: #444; }
+        .info-container { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .back-link { text-decoration: none; color: #888; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; transition: 0.3s; }
+        .back-link:hover { color: #007bff; }
+        h1 { color: #333; font-size: 1.5rem; margin-top: 10px; text-align: center; }
+        .game-img { width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0; border: 1px solid #eee; }
+        .description-box { background: #ffffff; margin: 20px 0; }
+        
+        /* Bark Panicのテーマカラー（パニック・オレンジ） */
+        .description-box h3 { font-size: 1.1rem; color: #ff5722; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .text-small { font-size: 0.9rem; color: #666; white-space: pre-wrap; margin-bottom: 20px; padding: 0 5px; }
+        
+        /* ボタンのデザイン（オレンジ系グラデーション） */
+        .play-btn { display: block; width: 80%; max-width: 250px; margin: 30px auto; text-align: center; padding: 16px; background: linear-gradient(135deg, #ff5722, #e64a19); color: #fff; text-decoration: none; border-radius: 12px; font-size: 1.1rem; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3); transition: 0.3s; }
+        .play-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 87, 34, 0.4); }
     </style>
 </head>
 <body>
+
 <div class="info-container">
-    <a href="../index.html" class="back-link">← ゲーム一覧に戻る</a>
+    <a href="index.html" class="back-link">← ゲーム一覧に戻る</a>
+    
     <h1>🐶 Bark Panic</h1>
 
-    <div style="text-align: center;">
-        <p style="font-size: 10px; color: #999;">スポンサーリンク</p>
+    <div style="text-align: center; margin: 15px 0 25px 0;">
+        <p style="font-size: 10px; color: #aaa; margin-bottom: 5px;">スポンサーリンク</p>
         <div id="im-857ade7f9e284af080ed831644ffde78">
             <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
             <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924331,type:"banner",display:"inline",elementid:"im-857ade7f9e284af080ed831644ffde78"})</script>
@@ -31,18 +42,42 @@
 
     <div class="description-box">
         <h3>💡 遊び方</h3>
-        <p>
-            四方八方からあなたの家（🏠）を狙って不審者（👤）が近づいてきます。<br>
-            不審者が家にたどり着く前に、タップして吠えて（！）追い払いましょう！
-        </p>
+        <div class="text-small">四方八方から忍び寄る泥棒から大事な「我が家」を守り抜く、タップアクションゲームです！
+
+● <b>家を守れ：</b> 画面中央の🏠（家）に向かって、👤（泥棒）がジワジワと近づいてきます。
+● <b>タップで撃退：</b> 泥棒が家にたどり着く前に、泥棒を直接タップ！ワンコが吠えて追い払います。
+● <b>防衛スコア：</b> 泥棒を1人追い払うごとに「GUARDスコア」が加算されます。
+● <b>難易度アップ：</b> スコアが上がるにつれて、泥棒の出現速度と移動スピードがどんどん上がっていきます！</div>
 
         <h3>🏆 攻略のコツ</h3>
-        <p>
-            スコアが上がるにつれて、不審者の数とスピードがアップします。中心の家ばかり見るのではなく、画面の端から現れる影を素早く見つけるのがポイントです！
-        </p>
+        <div class="text-small">● <b>優先順位をつける：</b> 家に一番近い泥棒から順番にタップしていきましょう。遠くの敵に気を取られるのが一番危険です！
+● <b>両手でディフェンス：</b> スマホを置いて、両手の指を使ってタップすると、複数の方向から同時に来る泥棒にも対応しやすくなります。
+● <b>落ち着いて正確に：</b> 焦って空振り（泥棒以外の場所をタップ）してもペナルティはありませんが、正確に泥棒の芯を捉えるリズムを保ちましょう。</div>
     </div>
 
     <a href="https://saaaachi.github.io/Bark-Panic/" class="play-btn">今すぐプレイ！</a>
+
+    <div style="text-align:center; margin:30px 0;">
+        <p style="font-size:10px; color:#aaa;">スポンサーリンク</p>
+        <div id="im-f10f679d4a73415187645b084707ace3">
+            <script>
+              (window.adsbyimobile=window.adsbyimobile||[]).push({
+                pid:84561,
+                mid:590804,
+                asid:1924332,
+                type:"banner",
+                display:"inline",
+                elementid:"im-f10f679d4a73415187645b084707ace3"
+              })
+            </script>
+        </div>
+    </div>
+
+    <footer style="text-align: center; padding: 40px 0 20px; font-size: 0.7rem; color: #aaa;">
+        <a href="privacy.html" style="color: #aaa; text-decoration: none;">プライバシーポリシー</a>
+        <p style="margin-top: 10px;">&copy; 2026 暇つぶしゲームセンター</p>
+    </footer>
 </div>
+
 </body>
 </html>
