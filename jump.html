@@ -8,10 +8,21 @@
         body { font-family: sans-serif; line-height: 1.6; background-color: #000; margin: 0; padding: 15px; color: #fff; }
         .info-container { max-width: 600px; margin: 0 auto; background: #222; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(255,255,255,0.1); }
         .back-link { text-decoration: none; color: #00FF00; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; }
-        h1 { color: #00FF00; font-size: 1.5rem; text-align: center; }
+        h1 { color: #00FF00; font-size: 1.5rem; text-align: center; margin-top: 0; }
         .game-img { width: 100%; border-radius: 12px; margin: 20px 0; border: 1px solid #444; }
-        .description-box h3 { color: #ff4757; border-left: 4px solid #ff4757; padding-left: 10px; }
-        .play-btn { display: block; width: 200px; margin: 30px auto; text-align: center; padding: 15px; background: #ff4757; color: white; text-decoration: none; border-radius: 30px; font-weight: bold; }
+        .description-box h3 { color: #ff4757; border-left: 4px solid #ff4757; padding-left: 10px; margin-top: 25px; }
+        
+        /* プレイボタン */
+        .play-btn { display: block; width: 220px; margin: 30px auto 15px; text-align: center; padding: 18px; background: #ff4757; color: white; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 4px #c0392b; font-size: 1.1rem; }
+        .play-btn:active { transform: translateY(2px); box-shadow: 0 2px #c0392b; }
+
+        /* ボタン下の小サイズ広告エリア */
+        .small-ad-area { width: 300px; height: 50px; background: rgba(255,255,255,0.05); margin: 20px auto; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+
+        /* フッターリンク（規約・ポリシー等） */
+        .footer-links { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #444; font-size: 12px; }
+        .footer-links a { color: #999; text-decoration: none; margin: 0 10px; }
+        .footer-links a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -20,7 +31,7 @@
     <h1>🟩 Dodge Game</h1>
 
     <div style="text-align: center;">
-        <p style="font-size: 10px; color: #999;">スポンサーリンク</p>
+        <p style="font-size: 10px; color: #666; margin-bottom: 5px;">スポンサーリンク</p>
         <div id="im-857ade7f9e284af080ed831644ffde78">
             <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
             <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924331,type:"banner",display:"inline",elementid:"im-857ade7f9e284af080ed831644ffde78"})</script>
@@ -43,6 +54,20 @@
     </div>
 
     <a href="https://saaaachi.github.io/mini-games-jump/" class="play-btn">今すぐプレイ！</a>
+
+    <div class="small-ad-area">
+        <div id="im-small-banner">
+            <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
+            <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924211,type:"banner",display:"inline",elementid:"im-small-banner"})</script>
+        </div>
+    </div>
+
+    <div class="footer-links">
+        <a href="../privacy.html">プライバシーポリシー</a>
+        <a href="../terms.html">利用規約</a>
+        <a href="../contact.html">お問い合わせ</a>
+        <p style="margin-top: 15px; color: #666;">&copy; 2026 Mini Games Collection</p>
+    </div>
 </div>
 </body>
 </html>
