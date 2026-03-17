@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【遊び方】Color Brain - 暇つぶしゲームセンター</title>
+    <style>
+        body { margin: 0; background: #fdfdfd; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; color: #333; }
+        
+        /* 広告枠：上下100px固定 */
+        .ad-space { width: 100%; height: 100px; background: #eee; display: flex; align-items: center; justify-content: center; }
+        iframe { border: none; width: 320px; height: 100px; }
+
+        /* コンテンツエリア */
+        .content { padding: 20px; max-width: 500px; margin: auto; background: white; min-height: calc(100vh - 200px); display: flex; flex-direction: column; align-items: center; }
+        
+        h1 { color: #00796b; border-bottom: 3px solid #00796b; padding-bottom: 10px; width: 100%; font-style: italic; }
+        .game-img { width: 100%; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0; border: 1px solid #eee; }
+        
+        .tip { background: #e0f2f1; padding: 15px; border-radius: 12px; text-align: left; margin: 20px 0; line-height: 1.6; font-size: 14px; width: 100%; }
+        
+        /* プレイボタン（鴨の羽色グラデーション） */
+        .play-btn { display: inline-block; padding: 18px 50px; background: linear-gradient(135deg, #009688, #00796b); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 20px; box-shadow: 0 4px 15px rgba(0, 121, 107, 0.3); margin: 20px 0 30px 0; transition: 0.3s; }
+        .play-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 121, 107, 0.4); }
+        
+        /* フッター */
+        footer { margin-top: auto; padding: 20px 0; font-size: 12px; color: #aaa; }
+        footer a { color: #aaa; text-decoration: underline; margin: 0 10px; }
+    </style>
+</head>
+<body>
+    <div class="ad-space"><iframe src="ad.html"></iframe></div>
+    
+    <div class="content">
+        <h1>COLOR BRAIN</h1>
+        <p>アタマがバグる？文字の色当て脳トレ！</p>
+        
+        <img src="images/IMG_6008.jpeg" alt="Color Brainのスクショ" class="game-img">
+
+        <div class="tip">
+            <strong>【遊び方】</strong><br>
+            ・画面中央に表示される「文字」に注目！<br>
+            ・その文字の意味（例：「あか」）ではなく、**「文字の色」**（例：青色で書かれている）を下のボタンから選んでください。<br>
+            ・正解すると制限時間が少し回復します。<br>
+            ・意味に惑わされず、どれだけ速く正解し続けられるかの勝負です！
+        </div>
+
+        <a href="https://saaaachi.github.io/color-brain/" class="play-btn">ゲームをプレイ！</a>
+
+        <footer>
+            <a href="privacy.html">プライバシーポリシー</a>
+            <p>&copy; 2026 暇つぶしゲームセンター</p>
+        </footer>
+    </div>
+
+    <div class="ad-space"><iframe src="ad.html"></iframe></div>
+</body>
+</html>
