@@ -5,67 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>【遊び方】Color Brain - 暇つぶしゲームセンター</title>
     <style>
-        body { margin: 0; background: #fdfdfd; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; color: #333; }
-        /* コンテンツエリア */
-        .content { padding: 20px; max-width: 500px; margin: auto; background: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+        /* デザイン統一（10-Stack準拠） */
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; background-color: #f0f2f5; margin: 0; padding: 15px; color: #444; }
+        .info-container { max-width: 600px; margin: 0 auto; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .back-link { text-decoration: none; color: #888; font-size: 0.9rem; margin-bottom: 20px; display: inline-block; transition: 0.3s; }
+        .back-link:hover { color: #007bff; }
+        h1 { color: #333; font-size: 1.5rem; margin-top: 10px; text-align: center; }
+        .game-img { width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0; border: 1px solid #eee; }
+        .description-box { background: #ffffff; margin: 20px 0; }
         
-        h1 { color: #00796b; border-bottom: 3px solid #00796b; padding-bottom: 10px; width: 100%; font-style: italic; margin-top: 20px; }
-        .game-img { width: 100%; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0; border: 1px solid #eee; }
-        .tip { background: #e0f2f1; padding: 15px; border-radius: 12px; text-align: left; margin: 20px 0; line-height: 1.6; font-size: 14px; width: 100%; }
+        /* Color Brainのテーマカラー（鴨の羽色・グリーン系） */
+        .description-box h3 { font-size: 1.1rem; color: #009688; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .text-small { font-size: 0.9rem; color: #666; white-space: pre-wrap; margin-bottom: 20px; padding: 0 5px; }
         
-        /* プレイボタン */
-        .play-btn { display: inline-block; padding: 18px 50px; background: linear-gradient(135deg, #009688, #00796b); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 20px; box-shadow: 0 4px 15px rgba(0, 121, 107, 0.3); margin-top: 10px; transition: 0.3s; }
-        .play-btn:hover { transform: translateY(-2px); opacity: 0.9; }
-        
-        /* 戻るリンク */
-        .back-link { margin-top: 25px; font-size: 14px; color: #aaa; text-decoration: underline; display: block; }
-        
-        footer { margin-top: auto; padding: 20px 0; font-size: 12px; color: #aaa; }
-        footer a { color: #aaa; text-decoration: underline; margin: 0 10px; }
+        /* ボタンのデザイン */
+        .play-btn { display: block; width: 80%; max-width: 250px; margin: 30px auto; text-align: center; padding: 16px; background: linear-gradient(135deg, #009688, #00796b); color: #fff; text-decoration: none; border-radius: 12px; font-size: 1.1rem; font-weight: bold; box-shadow: 0 4px 15px rgba(0, 150, 136, 0.3); transition: 0.3s; }
+        .play-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 150, 136, 0.4); }
+
+        /* 広告枠の調整 */
+        .ad-space { text-align: center; margin: 15px 0; }
+        .ad-label { font-size: 10px; color: #aaa; margin-bottom: 5px; }
     </style>
 </head>
 <body>
-    <div class="content">
-        <h1>COLOR BRAIN</h1>
-        
-        <div style="text-align: center; margin: 15px 0 25px 0;">
-            <p style="font-size: 10px; color: #aaa; margin-bottom: 5px;">スポンサーリンク</p>
-            <div id="im-857ade7f9e284af080ed831644ffde78">
-                <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
-                <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924331,type:"banner",display:"inline",elementid:"im-857ade7f9e284af080ed831644ffde78"})</script>
-            </div>
+
+<div class="info-container">
+    <a href="index.html" class="back-link">← ゲーム一覧に戻る</a>
+    
+    <h1>🧠 Color Brain</h1>
+
+    <div style="text-align: center; margin: 15px 0 25px 0;">
+        <p style="font-size: 10px; color: #aaa; margin-bottom: 5px;">スポンサーリンク</p>
+        <div id="im-857ade7f9e284af080ed831644ffde78">
+            <script async src="https://imp-adedge.i-mobile.co.jp/script/v1/spot.js?20220104"></script>
+            <script>(window.adsbyimobile=window.adsbyimobile||[]).push({pid:84561,mid:590804,asid:1924331,type:"banner",display:"inline",elementid:"im-857ade7f9e284af080ed831644ffde78"})</script>
         </div>
-
-        <p>アタマがバグる？文字の色当て脳トレ！</p>
-        
-        <img src="images/IMG_6008.jpeg" alt="Color Brain ゲーム画面" class="game-img">
-
-        <div class="tip">
-            <strong>【遊び方】</strong><br>
-            ・表示される「文字」の意味ではなく、実際に塗られている**「色」**を下のボタンから選んでください。<br>
-            ・正解すると制限時間が少し回復し、ミスをすると大幅に減少します！<br>
-            ・混乱を乗り越えて、ハイスコアを目指しましょう！
-        </div>
-
-        <a href="https://saaaachi.github.io/color-brain/" class="play-btn">ゲームをプレイ！</a>
-
-        <div style="text-align:center; margin:30px 0;">
-            <p style="font-size:10px; color:#aaa;">スポンサーリンク</p>
-            <div id="im-f10f679d4a73415187645b084707ace3">
-                <script>
-                    (window.adsbyimobile=window.adsbyimobile||[]).push({
-                        pid:84561, mid:590804, asid:1924332, type:"banner", display:"inline", elementid:"im-f10f679d4a73415187645b084707ace3"
-                    })
-                </script>
-            </div>
-        </div>
-
-        <a href="https://saaaachi.github.io/" class="back-link">まとめサイトへ戻る</a>
-
-        <footer>
-            <a href="privacy.html">プライバシーポリシー</a>
-            <p>&copy; 2026 暇つぶしゲームセンター</p>
-        </footer>
     </div>
+    
+    <img src="images/IMG_6008.jpeg" alt="Color Brainのスクショ" class="game-img">
+
+    <div class="description-box">
+        <h3>💡 遊び方</h3>
+        <div class="text-small">文字の意味に惑わされずに「文字の色」を素早く選ぶ、アタマの柔軟性が試される脳トレゲームです。
+
+● <b>文字の色をタップ：</b> 画面中央に表示される「文字の内容」ではなく、塗られている「色」を下のボタンから選んでください。
+● <b>タイムリミット：</b> 制限時間は15秒。正解するたびに少しずつ回復しますが、ミスをすると大幅に減ってしまいます。
+● <b>ハイスコアを目指す：</b> 混乱を乗り越えて、1つでも多くのスコアを稼ぎましょう！</div>
+
+        <h3>🏆 攻略のコツ</h3>
+        <div class="text-small">● <b>文字を「読まない」：</b> 文字を「意味」として認識すると脳が混乱します。文字の輪郭だけを見るようにして「色」の情報だけを脳に送りましょう。
+● <b>リズムを作る：</b> 一度リズムに乗ると、反射的に色を選べるようになります。視線をボタンと文字の中間あたりに置くのがコツです。
+● <b>焦りは禁物：</b> ミスのペナルティ（-2秒）が重いので、迷ったときは一瞬落ち着いて正確に選ぶほうがスコアが伸びやすくなります！</div>
+    </div>
+
+<a href="https://saaaachi.github.io/color-brain/" class="play-btn">今すぐプレイ！</a>
+
+<div style="text-align:center; margin:30px 0;">
+  <p style="font-size:10px; color:#aaa;">スポンサーリンク</p>
+
+  <div id="im-f10f679d4a73415187645b084707ace3">
+    <script>
+      (window.adsbyimobile=window.adsbyimobile||[]).push({
+        pid:84561,
+        mid:590804,
+        asid:1924332,
+        type:"banner",
+        display:"inline",
+        elementid:"im-f10f679d4a73415187645b084707ace3"
+      })
+    </script>
+  </div>
+</div>
+
+</div>
+
+<footer style="text-align: center; padding: 40px 0 20px; font-size: 0.7rem; color: #aaa;">
+    <a href="privacy.html" style="color: #aaa; text-decoration: none;">プライバシーポリシー</a>
+    <p style="margin-top: 10px;">&copy; 2026 暇つぶしゲームセンター</p>
+</footer>
+
 </body>
 </html>
