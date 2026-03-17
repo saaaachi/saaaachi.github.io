@@ -6,13 +6,20 @@
     <title>【遊び方】Color Brain - 暇つぶしゲームセンター</title>
     <style>
         body { margin: 0; background: #fdfdfd; font-family: 'Helvetica Neue', Arial, sans-serif; text-align: center; color: #333; }
-        /* 上下広告枠を削除 */
+        /* コンテンツエリア */
         .content { padding: 20px; max-width: 500px; margin: auto; background: white; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
         
         h1 { color: #00796b; border-bottom: 3px solid #00796b; padding-bottom: 10px; width: 100%; font-style: italic; margin-top: 20px; }
         .game-img { width: 100%; border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0; border: 1px solid #eee; }
         .tip { background: #e0f2f1; padding: 15px; border-radius: 12px; text-align: left; margin: 20px 0; line-height: 1.6; font-size: 14px; width: 100%; }
+        
+        /* プレイボタン */
         .play-btn { display: inline-block; padding: 18px 50px; background: linear-gradient(135deg, #009688, #00796b); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 20px; box-shadow: 0 4px 15px rgba(0, 121, 107, 0.3); margin-top: 10px; transition: 0.3s; }
+        .play-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+        
+        /* 戻るリンク */
+        .back-link { margin-top: 25px; font-size: 14px; color: #aaa; text-decoration: underline; display: block; }
+        
         footer { margin-top: auto; padding: 20px 0; font-size: 12px; color: #aaa; }
         footer a { color: #aaa; text-decoration: underline; margin: 0 10px; }
     </style>
@@ -30,12 +37,14 @@
         </div>
 
         <p>アタマがバグる？文字の色当て脳トレ！</p>
-        <img src="images/IMG_6008.jpeg" alt="Color Brainのスクショ" class="game-img">
+        
+        <img src="images/IMG_6008.jpeg" alt="Color Brain ゲーム画面" class="game-img">
 
         <div class="tip">
             <strong>【遊び方】</strong><br>
-            ・表示される「文字」の**意味ではなく、書かれている「色」**を下のボタンから選んでください。<br>
-            ・正解でタイム回復、ミスで大幅減少！どれだけ速く正解できるかの勝負です。
+            ・表示される「文字」の意味ではなく、実際に塗られている**「色」**を下のボタンから選んでください。<br>
+            ・正解すると制限時間が少し回復し、ミスをすると大幅に減少します！<br>
+            ・混乱を乗り越えて、ハイスコアを目指しましょう！
         </div>
 
         <a href="https://saaaachi.github.io/color-brain/" class="play-btn">ゲームをプレイ！</a>
@@ -50,6 +59,8 @@
                 </script>
             </div>
         </div>
+
+        <a href="https://saaaachi.github.io/" class="back-link">まとめサイトへ戻る</a>
 
         <footer>
             <a href="privacy.html">プライバシーポリシー</a>
